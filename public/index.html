@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local SEO Analyzer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-icon">◎</span>
+        <span class="brand-name">SEO Analyzer</span>
+      </div>
+      <form id="analyze-form" class="analyze-form">
+        <input
+          type="url"
+          id="url-input"
+          name="url"
+          placeholder="https://example.com"
+          required
+          autocomplete="url"
+        >
+        <button type="submit" id="analyze-btn">Analyze</button>
+      </form>
+    </div>
+  </header>
+
+  <div class="container">
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Running full audit… Lighthouse may take 15–30 seconds.</p>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+
+    <div id="empty-state" class="empty-hero">
+      <h1>Audit any URL</h1>
+      <p>On-page, technical, content, off-page & local SEO — with copy-paste code fixes.</p>
+    </div>
+
+    <main id="results" class="results hidden">
+      <section class="report-header">
+        <div class="report-url" id="report-url"></div>
+        <div class="report-meta" id="meta-bar"></div>
+        <div class="stat-chips" id="summary"></div>
+      </section>
+
+      <section class="score-dashboard">
+        <div class="score-group">
+          <h3 class="score-group-label">Lighthouse</h3>
+          <div class="scores" id="scores"></div>
+        </div>
+        <div class="score-group">
+          <h3 class="score-group-label">SEO Pillars</h3>
+          <div id="pillar-scores" class="pillar-scores"></div>
+        </div>
+      </section>
+
+      <nav class="tabs" id="tabs">
+        <button type="button" class="tab active" data-tab="overview">Overview</button>
+        <button type="button" class="tab" data-tab="fixes">Code Fixes</button>
+        <button type="button" class="tab" data-tab="audit">Full Audit</button>
+      </nav>
+
+      <section class="tab-panel active" id="panel-overview">
+        <div id="overview-content"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-fixes">
+        <div class="filter-bar" id="fix-filters"></div>
+        <div id="suggestions" class="suggestions"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-audit">
+        <div class="filter-bar" id="audit-filters"></div>
+        <div id="checks" class="checks"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

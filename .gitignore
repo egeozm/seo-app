@@ -1,0 +1,5 @@
+node_modules/
+.npm-cache/
+*.pptx
+.DS_Store
+.env
